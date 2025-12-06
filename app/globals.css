@@ -147,3 +147,32 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* Wallet Adapter Overrides */
+.wallet-adapter-button-trigger {
+  background-color: #f59e0b !important;
+  color: #000000 !important;
+  border: 2px solid #000000 !important;
+  box-shadow: 4px 4px 0 0 #000000 !important;
+  font-family: inherit !important;
+  font-weight: 900 !important;
+  border-radius: 0.75rem !important; /* rounded-xl */
+  height: auto !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.025em !important;
+  transition: all 0.2s !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.wallet-adapter-button-trigger:hover {
+  transform: translateY(2px) !important;
+  box-shadow: 2px 2px 0 0 #000000 !important;
+  background-color: #f59e0b !important; /* Keep same color or slightly different */
+}
+
+.wallet-adapter-button-trigger:not([disabled]):hover {
+  background-color: #f59e0b !important;
+}
+

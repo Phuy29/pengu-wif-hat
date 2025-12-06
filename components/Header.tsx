@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { SheetTrigger, SheetContent, Sheet } from "@/components/ui/sheet";
-import { Menu, Wallet } from "lucide-react";
+import { Menu } from "lucide-react";
 import Image from "next/image";
-import * as motion from "motion/react-client";
+import { WalletConnectButton } from "./WalletConnectButton";
+import { SignMessage } from "@/components/SignMessage";
 
 export function Header() {
   const navLinks = [
@@ -17,7 +18,7 @@ export function Header() {
   return (
     <header className="fixed top-6 left-0 w-full z-[9999] px-4 pointer-events-none">
       <div className="container mx-auto max-w-6xl pointer-events-auto">
-        <div className="bg-white/90 backdrop-blur-md border-4 border-black rounded-full shadow-[4px_4px_0_0_#000] px-4 py-3 md:px-8 md:py-4 flex items-center justify-between transition-all hover:shadow-[6px_6px_0_0_#000] hover:-translate-y-1">
+        <div className="bg-white/90 backdrop-blur-md border-4 border-black rounded-full shadow-[4px_4px_0_0_#000] px-4 py-3 md:px-8 md:py-4 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-10 h-10 md:w-12 md:h-12 border-2 border-black rounded-full overflow-hidden bg-[#7DD3FC]">
@@ -43,10 +44,9 @@ export function Header() {
 
           {/* Actions */}
           <div className="flex items-center gap-4">
-            <Button className="hidden md:flex bg-[#F59E0B] text-black border-2 border-black shadow-[2px_2px_0_0_#000] hover:translate-y-[2px] hover:shadow-none hover:bg-[#F59E0B]/90 font-black rounded-xl">
-              <Wallet className="mr-2 h-4 w-4" />
-              CONNECT
-            </Button>
+            <div className="hidden md:block">
+              <WalletConnectButton />
+            </div>
 
             {/* Mobile Menu */}
             <Sheet>
@@ -90,11 +90,8 @@ export function Header() {
                     ))}
                   </nav>
 
-                  <div className="mt-auto">
-                    <Button className="w-full bg-[#F59E0B] text-black border-4 border-black shadow-[4px_4px_0_0_#000] hover:translate-y-[2px] hover:shadow-[2px_2px_0_0_#000] font-black text-lg py-6 rounded-xl">
-                      <Wallet className="mr-2 h-5 w-5" />
-                      CONNECT WALLET
-                    </Button>
+                  <div className="mt-auto flex justify-center">
+                    <WalletConnectButton />
                   </div>
                 </div>
               </SheetContent>

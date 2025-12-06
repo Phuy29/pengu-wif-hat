@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client"
+  output   = "./generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  walletAddress String @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  transactions Transaction[]
+  staker    Staker?
+}
+
+model Transaction {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id])
+  amount    Float
+  type      String   // "BUY", "SELL", "STAKE", "UNSTAKE"
+  signature String   @unique
+  status    String   // "PENDING", "SUCCESS", "FAILED"
+  createdAt DateTime @default(now())
+}
+
+model Staker {
+  id        String   @id @default(uuid())
+  userId    String   @unique
+  user      User     @relation(fields: [userId], references: [id])
+  amount    Float
+  stakedAt  DateTime @default(now())
+  rewards   Float    @default(0)
+}
