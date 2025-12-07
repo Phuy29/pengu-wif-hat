@@ -211,7 +211,7 @@ export function SwapBox() {
         <div className="text-center py-8 space-y-6">
           <div className="space-y-2">
             <p className="text-lg font-bold text-[#8B4513]">
-              Staking Pool Active
+              Daily Passive Income via The Aurora Pool
             </p>
             <div
               className="text-5xl font-black text-[#F59E0B] drop-shadow-[0_2px_0_rgba(0,0,0,1)]"
@@ -228,9 +228,7 @@ export function SwapBox() {
             <p className="text-2xl font-black text-black">12,450,000 PENGU</p>
           </div>
 
-          <p className="text-sm text-[#8B4513] font-medium">
-            Stake your PENGU to earn more!
-          </p>
+          <p className="text-sm text-[#8B4513] font-medium">Wake up richer.</p>
           <button className="w-full bg-[#F59E0B] hover:bg-[#d97706] text-black border-2 border-black font-black py-4 rounded-xl shadow-[0_4px_0_#000] transform transition active:translate-y-1 active:shadow-none hover:-translate-y-1">
             Connect Wallet to Stake
           </button>
