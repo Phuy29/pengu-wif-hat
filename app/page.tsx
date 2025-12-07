@@ -1,3 +1,5 @@
+export const dynamic = "force-static";
+
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { AboutSection } from "@/components/sections/AboutSection";
