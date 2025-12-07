@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "Pengu Wif Hat",
     images: [
       {
-        url: "/og-image.png", // We will need to ensure this image exists
+        url: "/og-image.png", // We will need to change this image later
         width: 1200,
         height: 630,
         alt: "Pengu Wif Hat",

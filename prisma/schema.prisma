@@ -17,14 +17,16 @@ model User {
 }
 
 model Transaction {
-  id        String   @id @default(uuid())
-  userId    String
-  user      User     @relation(fields: [userId], references: [id])
-  amount    Float
-  type      String   // "BUY", "SELL", "STAKE", "UNSTAKE"
-  signature String   @unique
-  status    String   // "PENDING", "SUCCESS", "FAILED"
-  createdAt DateTime @default(now())
+  id                String   @id @default(uuid())
+  userId            String
+  user              User     @relation(fields: [userId], references: [id])
+  amount            Float    // SOL amount
+  penguAmount       Float    // PENGU amount
+  type              String   // "BUY", "SELL", "STAKE", "UNSTAKE"
+  signature         String   @unique
+  dispenseSignature String?  // Signature of the PENGU dispense transaction
+  status            String   // "PENDING", "SUCCESS", "FAILED"
+  createdAt         DateTime @default(now())
 }
 
 model Staker {

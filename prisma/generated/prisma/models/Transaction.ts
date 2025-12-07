@@ -28,18 +28,22 @@ export type AggregateTransaction = {
 
 export type TransactionAvgAggregateOutputType = {
   amount: number | null
+  penguAmount: number | null
 }
 
 export type TransactionSumAggregateOutputType = {
   amount: number | null
+  penguAmount: number | null
 }
 
 export type TransactionMinAggregateOutputType = {
   id: string | null
   userId: string | null
   amount: number | null
+  penguAmount: number | null
   type: string | null
   signature: string | null
+  dispenseSignature: string | null
   status: string | null
   createdAt: Date | null
 }
@@ -48,8 +52,10 @@ export type TransactionMaxAggregateOutputType = {
   id: string | null
   userId: string | null
   amount: number | null
+  penguAmount: number | null
   type: string | null
   signature: string | null
+  dispenseSignature: string | null
   status: string | null
   createdAt: Date | null
 }
@@ -58,8 +64,10 @@ export type TransactionCountAggregateOutputType = {
   id: number
   userId: number
   amount: number
+  penguAmount: number
   type: number
   signature: number
+  dispenseSignature: number
   status: number
   createdAt: number
   _all: number
@@ -68,18 +76,22 @@ export type TransactionCountAggregateOutputType = {
 
 export type TransactionAvgAggregateInputType = {
   amount?: true
+  penguAmount?: true
 }
 
 export type TransactionSumAggregateInputType = {
   amount?: true
+  penguAmount?: true
 }
 
 export type TransactionMinAggregateInputType = {
   id?: true
   userId?: true
   amount?: true
+  penguAmount?: true
   type?: true
   signature?: true
+  dispenseSignature?: true
   status?: true
   createdAt?: true
 }
@@ -88,8 +100,10 @@ export type TransactionMaxAggregateInputType = {
   id?: true
   userId?: true
   amount?: true
+  penguAmount?: true
   type?: true
   signature?: true
+  dispenseSignature?: true
   status?: true
   createdAt?: true
 }
@@ -98,8 +112,10 @@ export type TransactionCountAggregateInputType = {
   id?: true
   userId?: true
   amount?: true
+  penguAmount?: true
   type?: true
   signature?: true
+  dispenseSignature?: true
   status?: true
   createdAt?: true
   _all?: true
@@ -195,8 +211,10 @@ export type TransactionGroupByOutputType = {
   id: string
   userId: string
   amount: number
+  penguAmount: number
   type: string
   signature: string
+  dispenseSignature: string | null
   status: string
   createdAt: Date
   _count: TransactionCountAggregateOutputType | null
@@ -228,8 +246,10 @@ export type TransactionWhereInput = {
   id?: Prisma.StringFilter<"Transaction"> | string
   userId?: Prisma.StringFilter<"Transaction"> | string
   amount?: Prisma.FloatFilter<"Transaction"> | number
+  penguAmount?: Prisma.FloatFilter<"Transaction"> | number
   type?: Prisma.StringFilter<"Transaction"> | string
   signature?: Prisma.StringFilter<"Transaction"> | string
+  dispenseSignature?: Prisma.StringNullableFilter<"Transaction"> | string | null
   status?: Prisma.StringFilter<"Transaction"> | string
   createdAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -239,8 +259,10 @@ export type TransactionOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   amount?: Prisma.SortOrder
+  penguAmount?: Prisma.SortOrder
   type?: Prisma.SortOrder
   signature?: Prisma.SortOrder
+  dispenseSignature?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -254,7 +276,9 @@ export type TransactionWhereUniqueInput = Prisma.AtLeast<{
   NOT?: Prisma.TransactionWhereInput | Prisma.TransactionWhereInput[]
   userId?: Prisma.StringFilter<"Transaction"> | string
   amount?: Prisma.FloatFilter<"Transaction"> | number
+  penguAmount?: Prisma.FloatFilter<"Transaction"> | number
   type?: Prisma.StringFilter<"Transaction"> | string
+  dispenseSignature?: Prisma.StringNullableFilter<"Transaction"> | string | null
   status?: Prisma.StringFilter<"Transaction"> | string
   createdAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -264,8 +288,10 @@ export type TransactionOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   amount?: Prisma.SortOrder
+  penguAmount?: Prisma.SortOrder
   type?: Prisma.SortOrder
   signature?: Prisma.SortOrder
+  dispenseSignature?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   _count?: Prisma.TransactionCountOrderByAggregateInput
@@ -282,8 +308,10 @@ export type TransactionScalarWhereWithAggregatesInput = {
   id?: Prisma.StringWithAggregatesFilter<"Transaction"> | string
   userId?: Prisma.StringWithAggregatesFilter<"Transaction"> | string
   amount?: Prisma.FloatWithAggregatesFilter<"Transaction"> | number
+  penguAmount?: Prisma.FloatWithAggregatesFilter<"Transaction"> | number
   type?: Prisma.StringWithAggregatesFilter<"Transaction"> | string
   signature?: Prisma.StringWithAggregatesFilter<"Transaction"> | string
+  dispenseSignature?: Prisma.StringNullableWithAggregatesFilter<"Transaction"> | string | null
   status?: Prisma.StringWithAggregatesFilter<"Transaction"> | string
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Transaction"> | Date | string
 }
@@ -291,8 +319,10 @@ export type TransactionScalarWhereWithAggregatesInput = {
 export type TransactionCreateInput = {
   id?: string
   amount: number
+  penguAmount: number
   type: string
   signature: string
+  dispenseSignature?: string | null
   status: string
   createdAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutTransactionsInput
@@ -302,8 +332,10 @@ export type TransactionUncheckedCreateInput = {
   id?: string
   userId: string
   amount: number
+  penguAmount: number
   type: string
   signature: string
+  dispenseSignature?: string | null
   status: string
   createdAt?: Date | string
 }
@@ -311,8 +343,10 @@ export type TransactionUncheckedCreateInput = {
 export type TransactionUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  penguAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   type?: Prisma.StringFieldUpdateOperationsInput | string
   signature?: Prisma.StringFieldUpdateOperationsInput | string
+  dispenseSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutTransactionsNestedInput
@@ -322,8 +356,10 @@ export type TransactionUncheckedUpdateInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  penguAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   type?: Prisma.StringFieldUpdateOperationsInput | string
   signature?: Prisma.StringFieldUpdateOperationsInput | string
+  dispenseSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -332,8 +368,10 @@ export type TransactionCreateManyInput = {
   id?: string
   userId: string
   amount: number
+  penguAmount: number
   type: string
   signature: string
+  dispenseSignature?: string | null
   status: string
   createdAt?: Date | string
 }
@@ -341,8 +379,10 @@ export type TransactionCreateManyInput = {
 export type TransactionUpdateManyMutationInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  penguAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   type?: Prisma.StringFieldUpdateOperationsInput | string
   signature?: Prisma.StringFieldUpdateOperationsInput | string
+  dispenseSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -351,8 +391,10 @@ export type TransactionUncheckedUpdateManyInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   userId?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  penguAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   type?: Prisma.StringFieldUpdateOperationsInput | string
   signature?: Prisma.StringFieldUpdateOperationsInput | string
+  dispenseSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -371,22 +413,27 @@ export type TransactionCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   amount?: Prisma.SortOrder
+  penguAmount?: Prisma.SortOrder
   type?: Prisma.SortOrder
   signature?: Prisma.SortOrder
+  dispenseSignature?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type TransactionAvgOrderByAggregateInput = {
   amount?: Prisma.SortOrder
+  penguAmount?: Prisma.SortOrder
 }
 
 export type TransactionMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   amount?: Prisma.SortOrder
+  penguAmount?: Prisma.SortOrder
   type?: Prisma.SortOrder
   signature?: Prisma.SortOrder
+  dispenseSignature?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
@@ -395,14 +442,17 @@ export type TransactionMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   userId?: Prisma.SortOrder
   amount?: Prisma.SortOrder
+  penguAmount?: Prisma.SortOrder
   type?: Prisma.SortOrder
   signature?: Prisma.SortOrder
+  dispenseSignature?: Prisma.SortOrder
   status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
 }
 
 export type TransactionSumOrderByAggregateInput = {
   amount?: Prisma.SortOrder
+  penguAmount?: Prisma.SortOrder
 }
 
 export type TransactionCreateNestedManyWithoutUserInput = {
@@ -455,11 +505,17 @@ export type FloatFieldUpdateOperationsInput = {
   divide?: number
 }
 
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null
+}
+
 export type TransactionCreateWithoutUserInput = {
   id?: string
   amount: number
+  penguAmount: number
   type: string
   signature: string
+  dispenseSignature?: string | null
   status: string
   createdAt?: Date | string
 }
@@ -467,8 +523,10 @@ export type TransactionCreateWithoutUserInput = {
 export type TransactionUncheckedCreateWithoutUserInput = {
   id?: string
   amount: number
+  penguAmount: number
   type: string
   signature: string
+  dispenseSignature?: string | null
   status: string
   createdAt?: Date | string
 }
@@ -506,8 +564,10 @@ export type TransactionScalarWhereInput = {
   id?: Prisma.StringFilter<"Transaction"> | string
   userId?: Prisma.StringFilter<"Transaction"> | string
   amount?: Prisma.FloatFilter<"Transaction"> | number
+  penguAmount?: Prisma.FloatFilter<"Transaction"> | number
   type?: Prisma.StringFilter<"Transaction"> | string
   signature?: Prisma.StringFilter<"Transaction"> | string
+  dispenseSignature?: Prisma.StringNullableFilter<"Transaction"> | string | null
   status?: Prisma.StringFilter<"Transaction"> | string
   createdAt?: Prisma.DateTimeFilter<"Transaction"> | Date | string
 }
@@ -515,8 +575,10 @@ export type TransactionScalarWhereInput = {
 export type TransactionCreateManyUserInput = {
   id?: string
   amount: number
+  penguAmount: number
   type: string
   signature: string
+  dispenseSignature?: string | null
   status: string
   createdAt?: Date | string
 }
@@ -524,8 +586,10 @@ export type TransactionCreateManyUserInput = {
 export type TransactionUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  penguAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   type?: Prisma.StringFieldUpdateOperationsInput | string
   signature?: Prisma.StringFieldUpdateOperationsInput | string
+  dispenseSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -533,8 +597,10 @@ export type TransactionUpdateWithoutUserInput = {
 export type TransactionUncheckedUpdateWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  penguAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   type?: Prisma.StringFieldUpdateOperationsInput | string
   signature?: Prisma.StringFieldUpdateOperationsInput | string
+  dispenseSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -542,8 +608,10 @@ export type TransactionUncheckedUpdateWithoutUserInput = {
 export type TransactionUncheckedUpdateManyWithoutUserInput = {
   id?: Prisma.StringFieldUpdateOperationsInput | string
   amount?: Prisma.FloatFieldUpdateOperationsInput | number
+  penguAmount?: Prisma.FloatFieldUpdateOperationsInput | number
   type?: Prisma.StringFieldUpdateOperationsInput | string
   signature?: Prisma.StringFieldUpdateOperationsInput | string
+  dispenseSignature?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.StringFieldUpdateOperationsInput | string
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -554,8 +622,10 @@ export type TransactionSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   id?: boolean
   userId?: boolean
   amount?: boolean
+  penguAmount?: boolean
   type?: boolean
   signature?: boolean
+  dispenseSignature?: boolean
   status?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -565,8 +635,10 @@ export type TransactionSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   id?: boolean
   userId?: boolean
   amount?: boolean
+  penguAmount?: boolean
   type?: boolean
   signature?: boolean
+  dispenseSignature?: boolean
   status?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -576,8 +648,10 @@ export type TransactionSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   id?: boolean
   userId?: boolean
   amount?: boolean
+  penguAmount?: boolean
   type?: boolean
   signature?: boolean
+  dispenseSignature?: boolean
   status?: boolean
   createdAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -587,13 +661,15 @@ export type TransactionSelectScalar = {
   id?: boolean
   userId?: boolean
   amount?: boolean
+  penguAmount?: boolean
   type?: boolean
   signature?: boolean
+  dispenseSignature?: boolean
   status?: boolean
   createdAt?: boolean
 }
 
-export type TransactionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "amount" | "type" | "signature" | "status" | "createdAt", ExtArgs["result"]["transaction"]>
+export type TransactionOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "amount" | "penguAmount" | "type" | "signature" | "dispenseSignature" | "status" | "createdAt", ExtArgs["result"]["transaction"]>
 export type TransactionInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -613,8 +689,10 @@ export type $TransactionPayload<ExtArgs extends runtime.Types.Extensions.Interna
     id: string
     userId: string
     amount: number
+    penguAmount: number
     type: string
     signature: string
+    dispenseSignature: string | null
     status: string
     createdAt: Date
   }, ExtArgs["result"]["transaction"]>
@@ -1044,8 +1122,10 @@ export interface TransactionFieldRefs {
   readonly id: Prisma.FieldRef<"Transaction", 'String'>
   readonly userId: Prisma.FieldRef<"Transaction", 'String'>
   readonly amount: Prisma.FieldRef<"Transaction", 'Float'>
+  readonly penguAmount: Prisma.FieldRef<"Transaction", 'Float'>
   readonly type: Prisma.FieldRef<"Transaction", 'String'>
   readonly signature: Prisma.FieldRef<"Transaction", 'String'>
+  readonly dispenseSignature: Prisma.FieldRef<"Transaction", 'String'>
   readonly status: Prisma.FieldRef<"Transaction", 'String'>
   readonly createdAt: Prisma.FieldRef<"Transaction", 'DateTime'>
 }
